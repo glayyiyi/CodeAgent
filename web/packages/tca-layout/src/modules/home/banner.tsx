@@ -35,7 +35,7 @@ const Banner = () => {
         </div>
         <div className={s.sectionContainer}>
           <div className={s.info}>
-            <h2 className={s.title}>腾讯云代码分析</h2>
+            <h2 className={s.title}>代码分析</h2>
             <p className={s.pContent}>
               用心关注每行代码迭代、助力传承卓越代码文化！
               <br />
@@ -63,10 +63,7 @@ const Banner = () => {
               )}
             </div>
           </div>
-          {SHOW_GROUP_QR_CODE && <div className={s.qrCodeArea}>
-            <div className={s.qrCode}><img width={180} src={QrCode} /></div>
-            <p className={s.invite}><ChevronUp /> 扫码加入开源交流群</p>
-          </div>}
+         
         </div>
       </div>
     </>

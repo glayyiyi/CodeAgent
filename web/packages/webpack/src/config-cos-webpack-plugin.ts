@@ -1,5 +1,5 @@
 /**
- * 腾讯云COS Webpack 插件，参考 webpack5-cos-plugin
+ * XAgentCOS Webpack 插件，参考 webpack5-cos-plugin
  */
 import chalk from 'chalk';
 import zlib from 'zlib';
@@ -184,7 +184,7 @@ class CosWebpackPlugin {
       throw new Error(`[${PLUGIN_NAME}]: 需要配置 COS Region`);
     }
 
-    /** 初始化腾讯云COS客户端 */
+    /** 初始化XAgentCOS客户端 */
     this.client = new COS(this.config.cos);
   }
 

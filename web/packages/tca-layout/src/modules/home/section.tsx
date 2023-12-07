@@ -119,7 +119,7 @@ const Section = () => <>
     <Tabs defaultValue="1" size='large'>
       <Tabs.TabPanel label="代码质量分析" value="1">
         <div className={s.tabContent}>
-          <p className={s.desc}>腾讯云代码分析支持多语种代码工程质量的监控与分析，可进行增量、全量分析，精确追踪引入问题的责任人，聚合计算代码数据，输出报告。</p>
+          <p className={s.desc}>XAgent代码分析支持多语种代码工程质量的监控与分析，可进行增量、全量分析，精确追踪引入问题的责任人，聚合计算代码数据，输出报告。</p>
           <img src={scene01} />
         </div>
       </Tabs.TabPanel>
@@ -132,8 +132,8 @@ const Section = () => <>
       <Tabs.TabPanel label="多平台调用" value="3">
         <div className={s.tabContent}>
           <div className={s.desc}>
-            <p>腾讯云代码分析采用分布式客户端，支持云端分析、本地化分析、流水线调度分析等使用场景，满足多样化的研发环境。</p>
-            <p className={s.li}>用户可以直接在腾讯云代码分析 SaaS 平台上接入代码库进行云端分析。</p>
+            <p>代码分析采用分布式客户端，支持云端分析、本地化分析、流水线调度分析等使用场景，满足多样化的研发环境。</p>
+            <p className={s.li}>用户可以直接在XAgent代码分析 SaaS 平台上接入代码库进行云端分析。</p>
             <p className={s.li}>用户可下载客户端，在本地机器上执行代码分析。</p>
             <p className={s.li}>用户可通过 API 开放接口，自行与开源或自研的 DevOps 平台快速集成，满足各类 CI 流水线构建环节的代码分析。</p>
           </div>
@@ -142,7 +142,7 @@ const Section = () => <>
       </Tabs.TabPanel>
     </Tabs>
   </section>
-  <section className={s.customers}>
+  {/* <section className={s.customers}>
     <h2>客户案例</h2>
     <div className={s.customersContent}>
       {
@@ -155,7 +155,7 @@ const Section = () => <>
         ))
       }
     </div>
-  </section>
+  </section> */}
 </>;
 
 export default Section;

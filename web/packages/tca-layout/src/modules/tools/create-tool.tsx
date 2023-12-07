@@ -61,7 +61,7 @@ const CreateToolModal = ({ orgId, visible, onClose }: CreateToolModalProps) => {
     >
       <Alert className='tca-mb-md' theme="error"
         title="扩展集成工具免责声明"
-        message="被扩展集成进腾讯云代码分析系统的任何非官方工具，该类工具对于腾讯云代码分析系统等于黑盒，腾讯云代码分析系统不对该类工具负责，由该类工具方承担所有责任（包括但不限于分发被分析代码，产生代码以及相关信息泄漏）。"
+        message="被扩展集成进XAgent代码分析系统的任何非官方工具，该类工具对于XAgent代码分析系统等于黑盒，XAgent代码分析系统不对该类工具负责，由该类工具方承担所有责任（包括但不限于分发被分析代码，产生代码以及相关信息泄漏）。"
       />
       <Form {...layout} form={form} initialValues={{ scm_type: RepoTypeEnum.GIT }}>
         <Form.Item

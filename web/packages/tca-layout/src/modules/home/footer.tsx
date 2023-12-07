@@ -10,7 +10,7 @@ const Footer = () => (
     <div className={s.footer}>
       <div className="tca-fs-18 tca-text-white">
         <p className="tca-mb-xs tca-fs-14">{FOOTER_DESC}</p>
-        <p className="tca-mb-xs">Copyright © 1998 - {new Date().getFullYear()} Tencent. All Rights Reserved.</p>
+        <p className="tca-mb-xs">Copyright © 1998 - {new Date().getFullYear()} XAgent. All Rights Reserved.</p>
       </div>
     </div>
   </Layout.Footer>

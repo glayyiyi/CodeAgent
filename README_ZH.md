@@ -1,7 +1,7 @@
 <p align="center">
     <img src='https://tencent.github.io/CodeAnalysis/media/Logo.png' width="200"/>
     <br />
-    <em>腾讯云代码分析</em>
+    <em>XAgent代码分析</em>
     <br />
     <em>代号：CodeDog</em>
 </p>
@@ -24,7 +24,7 @@
 
 ## TCA
 
-腾讯云代码分析（Tencent Cloud Code Analysis，简称TCA，内部曾用研发代号CodeDog）是集众多分析工具的云原生、分布式、高性能的代码综合分析跟踪平台，包含服务端、Web端和客户端三个组件，已集成一批自研工具，同时也支持动态集成业界各编程语言的分析工具。
+XAgent代码分析（Tencent Cloud Code Analysis，简称TCA，内部曾用研发代号CodeDog）是集众多分析工具的云原生、分布式、高性能的代码综合分析跟踪平台，包含服务端、Web端和客户端三个组件，已集成一批自研工具，同时也支持动态集成业界各编程语言的分析工具。
 
 代码分析是通过词法分析、语法分析、控制流、数据流分析等技术对程序代码进行扫描，对代码进行综合分析，验证代码是否满足规范性、安全性、可靠性、可维护性等指标的一种代码分析技术。
 
@@ -53,7 +53,7 @@
 
 ## 社区
 
-- 微信公众号：「腾讯云静态分析」，关注并发送“进群”即可加入官方开源交流微信群
+- 微信公众号：「XAgent静态分析」，关注并发送“进群”即可加入官方开源交流微信群
 - 微信群金牌🏅服务群：
 
     <img src='https://tencent.github.io/CodeAnalysis/media/WechatQRCode.png' width="200"/>
@@ -61,7 +61,7 @@
 - QQ交流群：361791391  
 - [GitHub讨论区](https://github.com/Tencent/CodeAnalysis/discussions)
 - [Wiki](https://github.com/Tencent/CodeAnalysis/wiki)
-- [腾讯云代码分析白皮书](腾讯云代码分析白皮书.pdf)
+- [XAgent代码分析白皮书](XAgent代码分析白皮书.pdf)
 
 ## 更新
 

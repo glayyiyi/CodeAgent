@@ -28,7 +28,7 @@ bash ./quick_install.sh docker-compose deploy #启动tca_server容器
 
 
 :::tip
-完成 TCA 平台部署后，请在浏览器输入`http://部署机器IP/`，点击立即体验，完成登录后即可开启您的腾讯云代码分析。  
+完成 TCA 平台部署后，请在浏览器输入`http://部署机器IP/`，点击立即体验，完成登录后即可开启您的XAgent代码分析。  
 平台内操作指引请查看：[快速启动一次代码分析](../guide/快速入门/快速启动一次代码分析.md)
 
 默认平台登录账号/密码：CodeDog/admin

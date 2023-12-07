@@ -29,7 +29,7 @@ const UPDATE_TOKEN_NOTIFICATION = (
       <br />
       - 客户端节点命令行启动参数
       <br />
-      - 调用腾讯云代码分析API的请求头部参数
+      - 调用XAgent代码分析API的请求头部参数
     </p>
   </>
 );
@@ -69,7 +69,7 @@ const Token = () => {
   return (
     <>
       <PageHeader title="个人令牌" description={<>
-        个人访问令牌可用于访问 <a href={getApiDocURL()} target="_blank" rel="noreferrer">腾讯云代码分析 API</a>{' '}
+        个人访问令牌可用于访问 <a href={getApiDocURL()} target="_blank" rel="noreferrer">XAgent代码分析 API</a>{' '}
         和启动客户端分析，仅<span style={{ color: 'var(--tca-warning-color)' }}>超级 VIP 用户</span>可获取令牌
       </>} />
       <Layout.Content className='tca-pa-lg'>

@@ -40,7 +40,7 @@ export default defineUserConfig({
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: '腾讯云代码分析',
+      title: 'XAgent代码分析',
       description: '用心关注每行代码迭代、助力传承卓越代码文化！',
     },
     '/en': {

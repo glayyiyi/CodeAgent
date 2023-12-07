@@ -2,7 +2,7 @@
 
 ## 注意
 
-本文档仅供参考，不适用于正式环境部署，正式环境建议使用专业的Redis服务（比如[腾讯云的Redis产品](https://cloud.tencent.com/product/crs)）
+本文档仅供参考，不适用于正式环境部署，正式环境建议使用专业的Redis服务（比如[XAgent的Redis产品](https://cloud.tencent.com/product/crs)）
 
 ## 环境
 

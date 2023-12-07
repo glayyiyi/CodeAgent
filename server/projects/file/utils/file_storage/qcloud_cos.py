@@ -15,7 +15,7 @@ from .base import StorageClient
 
 class TencentCosStorageClient(StorageClient):
     """
-    目前使用的是众测的腾讯云公共COS，实际上所有内容都存放在同一个BUCKET。
+    目前使用的是众测的XAgent公共COS，实际上所有内容都存放在同一个BUCKET。
     但文件服务器对外的逻辑依然是将文件分bucket存放。
     """
 

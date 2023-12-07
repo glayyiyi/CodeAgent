@@ -20,13 +20,13 @@ TCA Web 采用 [Lerna](https://www.lernajs.cn/) 进行 `monorepo` 管理。
 
 - `login`: 登录微前端
 
-- `tca-layout`: 腾讯云代码分析layout微前端
+- `tca-layout`: XAgent代码分析layout微前端
 
-- `tca-analysis`: 腾讯云代码分析analysis微前端
+- `tca-analysis`: XAgent代码分析analysis微前端
 
-- `tca-manage`: 腾讯云代码分析后台管理微前端
+- `tca-manage`: XAgent代码分析后台管理微前端
 
-- `tca-document`: 腾讯云代码分析帮助文档
+- `tca-document`: XAgent代码分析帮助文档
 
 ## 基于构建后资源部署（tca-deploy-source）
 

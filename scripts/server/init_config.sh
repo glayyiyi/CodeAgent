@@ -79,7 +79,7 @@ function copy_server_config() {
 function install_server_requirments() {
     LOG_INFO "[TCAServer] Install server dependency packages... [Please wait for a moment.]"
     LOG_INFO "    * TCA Server requirements detail: $TCA_SERVER_CONFIG_PATH/requirements.txt"
-    LOG_WARN "    * TCA已配置腾讯云pypi源（https://mirrors.cloud.tencent.com/pypi/simple）进行下载"
+    LOG_WARN "    * TCA已配置XAgentpypi源（https://mirrors.cloud.tencent.com/pypi/simple）进行下载"
     LOG_WARN "    * 若仍无法正常下载或需更新为其他pypi源，请至/root/.pip/pip.conf文件进行调整, 使用目标镜像源地址进行替换"
     use_right_pip " -r $TCA_SERVER_CONFIG_PATH/requirements.txt"
 }

@@ -1,0 +1,257 @@
+version: "3"
+
+services:
+  mysql:
+    # 如果需要在ARM架构上运行，可以使用 mariadb:10.5.8 镜像
+    image: mysql:5.7.24
+    # image: mariadb:10.5.8  # For ARM
+    command:
+      [
+        "--log-bin=mysql-bin",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+        "--innodb_flush_log_at_trx_commit=1",
+        "--sync_binlog=1",
+        "--server-id=1"
+      ]
+    environment:
+      MYSQL_DATABASE: "codedog_db"
+      MYSQL_ROOT_PASSWORD: "TCA!@#2021"
+    volumes:
+      - ./.docker_data/mysql:/var/lib/mysql
+      - ./server/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    expose:
+      - "3306"
+    restart: always
+
+  redis:
+    image: redis:5.0.5
+    command: redis-server
+    volumes:
+      - ./.docker_data/redis:/data
+    expose:
+      - "6379"
+    restart: always
+
+  main-server:
+    env_file:
+      - ./server/dockerconfs/.env.local
+    image: tencenttca/tca-main:latest
+    build:
+      context: ./server/projects/main
+      dockerfile: ../../dockerconfs/Dockerfile-common-${ORIGIN:-mirror}
+    command:
+      [
+        "gunicorn",
+        "codedog.wsgi",
+        "-c",
+        "main.gunicorn.conf.py"
+      ]
+    volumes:
+      - ./server/configs/django/local_main.py:/var/www/django/codedog/codedog/settings/local.py
+      - ./.docker_data/logs/main_server:/var/www/django/codedog/log
+    expose:
+      - "8001"
+    depends_on:
+      - mysql
+      - redis
+
+  main-worker:
+    env_file:
+      - ./server/dockerconfs/.env.local
+    image: tencenttca/tca-main:latest
+    command:
+      [
+        "celery",
+        "-A",
+        "codedog",
+        "worker",
+        "--concurrency=2",
+        "-l",
+        "INFO"
+      ]
+    volumes:
+      - ./server/configs/django/local_main.py:/var/www/django/codedog/codedog/settings/local.py
+      - ./.docker_data/logs/main_worker:/var/www/django/codedog/log
+    healthcheck:
+        test: ["CMD-SHELL", "bash bin/healthy_check.sh"]
+        interval: 60s
+    restart: always
+    depends_on:
+      - mysql
+      - redis
+
+  main-beat:
+    env_file:
+      - ./server/dockerconfs/.env.local
+    image: tencenttca/tca-main:latest
+    command:
+      [
+        "celery",
+        "-A",
+        "codedog",
+        "beat",
+        "-S",
+        "redbeat.RedBeatScheduler",
+        "-l",
+        "INFO"
+      ]
+    volumes:
+      - ./server/configs/django/local_main.py:/var/www/django/codedog/codedog/settings/local.py
+      - ./.docker_data/logs/main_beat:/var/www/django/codedog/log
+    depends_on:
+      - mysql
+      - redis
+    restart: on-failure
+
+  analysis-server:
+    env_file:
+      - ./server/dockerconfs/.env.local
+    image: tencenttca/tca-analysis:latest
+    build:
+      context: ./server/projects/analysis
+      dockerfile: ../../dockerconfs/Dockerfile-common-${ORIGIN:-mirror}
+    command:
+      [
+        "gunicorn",
+        "codedog.wsgi",
+        "-c",
+        "analysis.gunicorn.conf.py"
+      ]
+    volumes:
+      - ./server/configs/django/local_analysis.py:/var/www/django/codedog/codedog/settings/local.py
+      - ./.docker_data/logs/analysis_server:/var/www/django/codedog/log
+    expose:
+      - "8002"
+    depends_on:
+      - mysql
+      - redis
+
+  analysis-worker:
+    env_file:
+      - ./server/dockerconfs/.env.local
+    image: tencenttca/tca-analysis:latest
+    command:
+      [
+        "celery",
+        "-A",
+        "codedog",
+        "worker",
+        "--concurrency=2",
+        "-l",
+        "INFO"
+      ]
+    volumes:
+      - ./server/configs/django/local_analysis.py:/var/www/django/codedog/codedog/settings/local.py
+      - ./.docker_data/logs/analysis_worker:/var/www/django/codedog/log
+    healthcheck:
+      test: ["CMD-SHELL", "bash bin/healthy_check.sh"]
+      interval: 60s
+    depends_on:
+      - mysql
+      - redis
+
+  login-server:
+    env_file:
+      - ./server/dockerconfs/.env.local
+    build:
+      context: ./server/projects/login
+      dockerfile: ../../dockerconfs/Dockerfile-common-${ORIGIN:-mirror}
+    image: tencenttca/tca-login:latest
+    command:
+      [
+        "gunicorn",
+        "apps.wsgi",
+        "-c",
+        "login.gunicorn.conf.py"
+      ]
+    volumes:
+      - ./server/configs/django/local_login.py:/var/www/django/codedog/apps/settings/local.py
+      - ./.docker_data/logs/login:/var/www/django/codedog/log
+    expose:
+      - "8003"
+    depends_on:
+      - mysql
+
+  file-server:
+    env_file:
+      - ./server/dockerconfs/.env.local
+    build:
+      context: ./server/projects/file
+      dockerfile: ../../dockerconfs/Dockerfile-common-${ORIGIN:-mirror}
+    image: tencenttca/tca-file:latest
+    command:
+      [
+        "gunicorn",
+        "codedog_file_server.wsgi",
+        "-c",
+        "file.gunicorn.conf.py"
+      ]
+    volumes:
+      - ./server/configs/django/local_file.py:/var/www/django/codedog/codedog_file_server/env/local.py
+      - ./.docker_data/filedata:/var/www/django/codedog/data
+      - ./.docker_data/logs/file_server:/var/www/django/codedog/log
+    expose:
+      - "8804"
+    depends_on:
+      - mysql
+  
+  file-nginx:
+    image: nginx:1.13.7
+    volumes:
+      - ./server/configs/nginx/tca_file_local_compose.conf:/etc/nginx/conf.d/tca_file_local_compose.conf
+      - ./.docker_data/logs/file_nginx:/var/log/nginx
+    expose:
+      - "8004"
+    depends_on:
+      - file-server
+
+  scmproxy:
+    env_file:
+      - ./server/dockerconfs/.env.local
+    build:
+      context: ./server/projects/scmproxy
+      dockerfile: ../../dockerconfs/Dockerfile-common-${ORIGIN:-mirror}
+    image: tencenttca/tca-scmproxy:latest
+    command: [ "python", "proxyserver.py" ]
+    volumes:
+      - ./.docker_data/logs/scmproxy:/var/www/django/codedog/logs
+    expose:
+      - "8009"
+
+  nginx:
+    build:
+      context: ./web/tca-deploy-source
+      dockerfile: ../../server/dockerconfs/Dockerfile-nginx-${ORIGIN:-mirror}
+    env_file:
+      - ./web/tca-deploy-source/docker_conf/.env
+    volumes:
+      - ./.docker_data/logs/nginx:/var/log/nginx
+      - ./web/tca-deploy-source:/data/tca-deploy-source
+      - ./server/configs/nginx/tca_8000_compose.conf:/etc/nginx/conf.d/tca_8000_compose.conf
+    entrypoint: bash /data/tca-deploy-source/scripts/deploy.sh init
+    ports:
+      - "80:80"
+      - "8000:8000"
+    depends_on:
+      - main-server
+      - analysis-server
+      - login-server
+      - file-server
+
+  client:
+    env_file:
+      - ./server/dockerconfs/.env.local
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: tencenttca/tca-client:latest
+    command: 
+      - /bin/bash
+      - -c
+      - |
+        python3 codepuppy.py start -t $$CODEDOG_TOKEN
+    volumes:
+      - ./tools/:/workspace/tools/
+      - ./client/config.ini:/workspace/client/config.ini
+      - ./.docker_data/client/appdata:/workspace/client/.appdata

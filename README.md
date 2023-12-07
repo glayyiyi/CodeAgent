@@ -55,7 +55,7 @@ Using TCA can help team find normative, structural, security vulnerabilities and
 
 ## Community
 
-- WeChat Official Account: 「腾讯云静态分析」. Follow and send "Join the group" to join the official open source communication WeChat group.
+- WeChat Official Account: 「XAgent静态分析」. Follow and send "Join the group" to join the official open source communication WeChat group.
 - WeChat Group：
 
     <img src='https://tencent.github.io/CodeAnalysis/media/WechatQRCode.png' width="200"/>
@@ -63,7 +63,7 @@ Using TCA can help team find normative, structural, security vulnerabilities and
 - QQ Group: 361791391
 - [Discussion](https://github.com/Tencent/CodeAnalysis/discussions)
 - [Wiki](https://github.com/Tencent/CodeAnalysis/wiki)
-- [White Paper](腾讯云代码分析白皮书.pdf)
+- [White Paper](XAgent代码分析白皮书.pdf)
 
 ## Changelogs
 

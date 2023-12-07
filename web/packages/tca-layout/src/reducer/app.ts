@@ -4,7 +4,7 @@ import Constant from './constant';
 
 const initialState = {
   enterprise: {
-    name: '腾讯云代码分析',
+    name: '代码分析',
     key: 'tca',
     globalKey: 'tca',
     global_key: 'tca',

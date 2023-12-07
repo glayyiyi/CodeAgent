@@ -154,8 +154,8 @@ function init_framework_web() {
   # index meta 配置项
   MICRO_FRONTEND_API=/static/configs.json
   MICRO_FRONTEND_SETTING_API=/static/settings.json
-  TITLE=腾讯云代码分析
-  DESCRIPTION=腾讯云代码分析，用心关注每行代码迭代、助力传承卓越代码文化！精准跟踪管理代码分析发现的代码质量缺陷、代码规范、代码安全漏洞、无效代码，以及度量代码复杂度、重复代码、代码统计。
+  TITLE=代码分析
+  DESCRIPTION=用心关注每行代码迭代、助力传承卓越代码文化！精准跟踪管理代码分析发现的代码质量缺陷、代码规范、代码安全漏洞、无效代码，以及度量代码复杂度、重复代码、代码统计。
   KEYWORDS=代码检查、圈复杂度、重复代码、代码统计
   FAVICON=/static/images/favicon.ico
   FRAMEWORK_DEPLOY_PATH=$WEB_DEPLOY_PATH/$MICRO_FRONTEND_FRAMEWORK
