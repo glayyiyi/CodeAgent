@@ -20,8 +20,10 @@ services:
     volumes:
       - ./.docker_data/mysql:/var/lib/mysql
       - ./server/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
-    expose:
-      - "3306"
+    # expose:
+    #   - "3306"
+    ports:
+        - "3306:3306"
     restart: always
 
   redis:
