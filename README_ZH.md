@@ -1,7 +1,6 @@
 
 
-[![license](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat)](LICENSE) [![docs](https://img.shields.io/badge/docs-read-brightgreen.svg?style=flat)](https://tencent.github.io/CodeAnalysis/)
-
+[![license](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat)](LICENSE)
 ## 关键功能
 
 1. **语言支持**：支持 Java/C++/Objective-C/C#/JavaScript/Python/Go/PHP 等数十种语言，覆盖常用编程语言。
