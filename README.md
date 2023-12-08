@@ -1,28 +1,7 @@
-<p align="center">
-    <img src='https://tencent.github.io/CodeAnalysis/media/Logo.svg' width="200"/>
-    <br />
-    <em>TCA, Tencent Cloud Code Analysis</em>
-    <br />
-    <em>code-named: CodeDog</em>
-</p>
 
 [![license](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat)](LICENSE) [![docs](https://img.shields.io/badge/docs-read-brightgreen.svg?style=flat)](https://tencent.github.io/CodeAnalysis/)
 
 English | [简体中文](README_ZH.md)
-
-## TCA Official Website
-
-[https://cloud.tencent.com/product/tcap](https://cloud.tencent.com/product/tcap)
-
-## TCA Github Pages
-
-[https://tencent.github.io/CodeAnalysis/](https://tencent.github.io/CodeAnalysis/)
-
-[https://github.com/TCATools](https://github.com/TCATools)
-
-## Repo Mirror
-
-[https://git.code.tencent.com/Tencent_Open_Source/CodeAnalysis.git](https://git.code.tencent.com/Tencent_Open_Source/CodeAnalysis.git)
 
 ## What is TCA
 
