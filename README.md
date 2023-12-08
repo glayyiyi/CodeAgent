@@ -2,6 +2,8 @@
 [![license](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat)](LICENSE) 
 English | [简体中文](README_ZH.md)
 
+CodeAgent is a code anylisis Agent
+
 ## Key Features
 
 1. **Language support**: It supports Java/C++/Objective-C/C#/JavaScript/Python/Go/PHP and more, covering common programming languages.  
