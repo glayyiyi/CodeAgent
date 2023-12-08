@@ -1,26 +1,8 @@
-<p align="center">
-    <img src='https://tencent.github.io/CodeAnalysis/media/Logo.png' width="200"/>
-    <br />
-    <em>XAgent代码分析</em>
-    <br />
-    <em>代号：CodeDog</em>
-</p>
+
 
 [![license](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat)](LICENSE) [![docs](https://img.shields.io/badge/docs-read-brightgreen.svg?style=flat)](https://tencent.github.io/CodeAnalysis/)
 
-## TCA-官方网址
 
-[https://cloud.tencent.com/product/tcap](https://cloud.tencent.com/product/tcap)
-
-## TCA-Github代码库
-
-[https://tencent.github.io/CodeAnalysis/](https://tencent.github.io/CodeAnalysis/)
-
-[https://github.com/TCATools](https://github.com/TCATools)
-
-## TCA-国内镜像工蜂代码库
-
-[https://git.code.tencent.com/Tencent_Open_Source/CodeAnalysis.git](https://git.code.tencent.com/Tencent_Open_Source/CodeAnalysis.git)
 
 ## TCA
 
